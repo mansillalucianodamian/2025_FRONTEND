@@ -5,11 +5,12 @@ import useFetch from '../../hooks/useFetch'
 import { login } from '../../services/authService'
 import { useEffect } from 'react'
 import { AuthContext } from '../../Context/AuthContext.jsx'
+import './LoginScreen.css'
 
 const LoginScreen = () => {
   const navigate = useNavigate()
   const location = useLocation()
-  const {onLogin} = useContext(AuthContext)
+  const { onLogin } = useContext(AuthContext)
   useEffect(
     () => {
       //Si venimos de verificar email, mostramos la alerta de verificacion
@@ -71,40 +72,56 @@ const LoginScreen = () => {
 
   return (
     <div className="Form-container">
-      <h1>Logeate</h1>
-      <form onSubmit={handleSubmit}>
-        <div className="form-field">
-          <label htmlFor="email">Email: </label>
-          <input
-            type="text"
-            placeholder="jose@algo.com"
-            value={form_state[LOGIN_FORM_FIELDS.EMAIL]}
-            name={LOGIN_FORM_FIELDS.EMAIL}
-            onChange={onInputChange}
-            id={'email'} />
+      <header className="Form-header">
+          <img src="/logo Slack.png" alt="" />
+      </header>
+
+      <main className="Form-main">
+        <h1 className="title-principal">Escribe tu correo electrónico para iniciar sesión</h1>
+        <h3 className='title-mediun'>O elige una cuenta sino tienes una.</h3>
+        <form className="form" onSubmit={handleSubmit}>
+          <div className="form-field">
+            <label htmlFor="email"></label>
+            <input className='imput'
+              type="text"
+              placeholder="nombre-de-usuario@email.com"
+              value={form_state[LOGIN_FORM_FIELDS.EMAIL]}
+              name={LOGIN_FORM_FIELDS.EMAIL}
+              onChange={onInputChange}
+              id={'email'} />
+          </div>
+          <div>
+            <label htmlFor="password"></label>
+            <input className='imput'
+              type="text"
+              placeholder="*******"
+              value={form_state[LOGIN_FORM_FIELDS.PASSWORD]}
+              name={LOGIN_FORM_FIELDS.PASSWORD}
+              onChange={onInputChange}
+              id={'password'} />
+          </div>
+
+          {error && <span style={{ color: 'red' }}> {error.message} </span>}
+          {response && <span style={{ color: 'green' }}> Usuario registrado con exito! </span>}
+
+          {
+            loading
+              ? <button className='button-principal' disabled>Iniciar sesión</button> //Desactivar boton mientras se haga la peticion</button>
+              : <button className='button-principal'>Iniciar sesión</button>
+          }
+        </form>
+        <div className="Form-main__register">
+          <span>¿Es tu primera vez en Slack?</span>
+          <a href="">Crear una cuenta</a>
         </div>
-
-        <div>
-          <label htmlFor="password">Password: </label>
-          <input
-            type="text"
-            placeholder="Josesito206"
-            value={form_state[LOGIN_FORM_FIELDS.PASSWORD]}
-            name={LOGIN_FORM_FIELDS.PASSWORD}
-            onChange={onInputChange}
-            id={'password'} />
-        </div>
-
-        {error && <span style={{ color: 'red' }}> {error.message} </span>}
-        {response && <span style={{ color: 'green' }}> Usuario registrado con exito! </span>}
-
-        {
-          loading
-            ? <button disabled>Loggin In</button>
-            : <button>Login</button>
-        }
-      </form>
+      </main>
+      <footer className="Form-footer">
+          <a href="">Privacidad y términos</a>
+          <a href="">Contactarnos</a>
+          <a href="">Cambiar región</a>
+      </footer>
     </div>
+
   )
 }
 

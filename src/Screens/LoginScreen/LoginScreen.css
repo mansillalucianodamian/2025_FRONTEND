@@ -1,0 +1,136 @@
+.Form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh;
+    width: 100vw;
+}
+
+.Form-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 48px 0 40px;
+}
+
+.Form-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.Form-footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 14px;
+    width: 100%;
+    margin-right: 16px;
+    gap: 12px;
+}
+
+.Form-header img {
+    width: 90px;
+    height: 52px;
+}
+
+.Form-header__left {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+}
+
+.Form-main__register {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    line-height: 1.46668;
+}
+
+
+.Form-main__register span {
+    color: #696969;
+    font-weight: 200;
+}
+
+.Form-main__register a {
+    color: #1264a3;
+    text-decoration: none;
+    font-weight: 700;
+    cursor: pointer;
+}
+.Form-footer a{
+    color: #696969;
+    font-weight: 200;
+    text-decoration: none;
+}
+
+.Form-footer a:hover{
+    text-decoration: underline;
+}
+
+.Form-main__register a:hover {
+    text-decoration: underline;
+}
+
+.title-principal {
+    text-align: center;
+    max-width: 700px;
+    margin-bottom: 10px;
+    color: #1d1c1d;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 46px;
+    letter-spacing: -0.75px;
+}
+
+.title-mediun {
+    color: #454245;
+    text-align: center;
+    max-width: 700px;
+    margin-bottom: 32px;
+    font-size: 18px;
+    line-height: 27px
+}
+
+.form {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 0 20px;
+}
+
+.imput {
+    height: 44px;
+    width: 100%;
+    padding: 12px;
+    font-size: 18px;
+    line-height: 1.33334;
+    border: 1px solid #d4d4d4;
+    border-radius: 15px;
+    margin-bottom: 10px;
+
+}
+
+.button-principal {
+    color: #fff;
+    background-color: #4a154b;
+    border: none;
+    margin-bottom: 20px;
+    height: 44px;
+    border-radius: 15px;
+    font-size: 18px;
+    font-weight: 700;
+    width: 100%;
+    padding: 0 16px 3px;
+}
