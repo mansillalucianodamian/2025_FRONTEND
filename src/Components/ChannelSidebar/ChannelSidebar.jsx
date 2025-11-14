@@ -3,6 +3,8 @@ import ChannelList from '../ChannelList/ChannelList'
 import useFetch from '../../hooks/useFetch'
 import { useParams } from 'react-router'
 import { getChannelList } from '../../services/channelService'
+import './ChannelSidebar.css'
+import ICONS from '../../assets/constanst/icons'
 
 const ChannelSidebar = () => {
     const {
@@ -30,13 +32,21 @@ const ChannelSidebar = () => {
         [workspace_id] //Cada vez que cambie workspace_id re ejecutar el efecto
     )
 
-    console.log(response, error, loading)
+/*     console.log(response, error, loading) */
 
     return (
-        <aside>
-            <h3>Canales:</h3>
+        <aside className='channel-layout'>
+            <div className='channel_icons'>
+                <ICONS.Gear/>
+                <ICONS.NewMessage/>
+            </div>
+            <input className='search'
+                type="text"
+                placeholder="Buscar canales"
+              />
+            <h3 className='channel-layout__title'>Canales</h3>
             {
-                loading && <span>Cargando...</span>
+                loading && <span className='text_secondary loading'>Cargando...</span>
             }
             {
                 response && <ChannelList channel_list={response.data.channels}/>

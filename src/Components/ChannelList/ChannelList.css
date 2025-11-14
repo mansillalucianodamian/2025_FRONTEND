@@ -1,0 +1,36 @@
+.channel-list {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    /* 🔹 estira los items al ancho total */
+    width: 100%;
+}
+
+.list_channel {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    padding: 8px 20px 8px 30px;
+    background-color: transparent;
+    color: #b4a7b6;
+    font-size: 15px;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+.list_channel:hover {
+    background-color: #651766;
+    color: #fff;
+}
+
+.channel-hash {
+    color: #b4b4b4;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.channel-name {
+    color: inherit;
+    text-transform: lowercase;
+}

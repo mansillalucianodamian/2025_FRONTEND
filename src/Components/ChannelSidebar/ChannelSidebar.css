@@ -1,0 +1,61 @@
+.channel-layout {
+    display: flex;
+    flex-direction: column;
+    width: 410px;
+    height: 100vh;
+    background-color: #221126;
+}
+
+.channel_icons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    color: white;
+    margin: 20px 20px 20px 20px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.search {
+    background-color: #532753;
+    color: #fff;
+    border: none;
+    outline: none;
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    width: 370px;
+    display: flex;
+    align-items: center;
+    cursor: text;
+    transition: background-color 0.2s, box-shadow 0.2s;
+    margin-left: 20px;
+    margin-right: 20px
+}
+.search:hover {
+  background-color: #5c2d5d;
+}
+
+.search:focus-within {
+  background-color: #6b3570;
+  box-shadow: 0 0 0 2px #ddd;
+}
+
+.search input::placeholder {
+  color: #ddd;
+  font-weight: 400;
+  opacity: 0.8;
+}
+
+.channel-layout__title {
+    color: #ddd;
+    margin: 20px 20px 10px 20px;
+    font-size: 20px;
+    font-weight: 600;
+}
+.loading{
+    color: white;
+    margin: 20px 20px 20px 20px;
+}

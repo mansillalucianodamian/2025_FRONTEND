@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import useForm from '../../hooks/useForm'
 import { register } from '../../services/authService'
 import useFetch from '../../hooks/useFetch'
+import './RegisterScreen.css'
 
 
 
@@ -51,12 +52,12 @@ const RegisterScreen = () => {
     
     console.log(error)
   return (
-    <div>
+    <div className='register_container'>
         <h1>Registrate</h1>
         <form onSubmit={handleSubmit}>
             <div className='form-field'>
-                <label htmlFor="username">Nombre de usuario:</label>
-                <input 
+                <label htmlFor="username"></label>
+                <input className='imput'
                     type="text" 
                     placeholder='pepe' 
                     value={form_state[REGISTER_FORM_FIELDS.USERNAME]}
@@ -66,10 +67,10 @@ const RegisterScreen = () => {
                 />
             </div>
             <div className='form-field'>
-                <label htmlFor="email">Email:</label>
-                <input 
+                <label htmlFor="email"></label>
+                <input className='imput'
                     type="text" 
-                    placeholder='pepe@mail.com' 
+                    placeholder='nombre-de-usuario@email.com' 
                     value={form_state[REGISTER_FORM_FIELDS.EMAIL]}
                     name={REGISTER_FORM_FIELDS.EMAIL}
                     onChange={onInputChange}
@@ -77,10 +78,10 @@ const RegisterScreen = () => {
                 />
             </div>
             <div className='form-field'>
-                <label htmlFor="password">Contraseña:</label>
-                <input 
+                <label htmlFor="password"></label>
+                <input className='imput'
                     type="text" 
-                    placeholder='pepe-123' 
+                    placeholder='****************' 
                     value={form_state[REGISTER_FORM_FIELDS.PASSWORD]}
                     name={REGISTER_FORM_FIELDS.PASSWORD}
                     onChange={onInputChange}
@@ -91,8 +92,8 @@ const RegisterScreen = () => {
             {response && <span style={{color: 'green'}}> Usuario registrado con exito! </span>}
             {
                 loading 
-                ? <button disabled>Registrando</button>
-                : <button>Registrarse</button>
+                ? <button className='button-principal' disabled>Registrando</button>
+                : <button className='button-principal'>Registrarse</button>
             }
             
         </form>

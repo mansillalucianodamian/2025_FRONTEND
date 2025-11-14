@@ -19,7 +19,7 @@ async function getChannelList (workspace_id){
     const response = await response_http.json();
     console.log(response.ok)
      if (!response.ok) {
-        throw new Error("Error at get channels");
+        throw new Error("Error al obtener lista de canales");
     }
     return response;
 }

@@ -1,0 +1,145 @@
+/* Contenedor general */
+.workspaces-container {
+    background-color: #4a154b;
+    color: white;
+    min-height: 100vh;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Header principal */
+.workspaces-header h1 {
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 40px;
+}
+
+/* Contenido principal */
+.workspaces-content {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* Subtítulo */
+.workspaces-subtitle {
+    font-size: 24px;
+    font-weight: 600;
+    background-color: #f6f0fa;
+    color: #1d1c1d;
+    padding: 16px;
+    border-radius: 8px;
+}
+
+.user-email {
+  color: #611f69;        
+  font-weight: 500;       
+}
+
+
+/* Tarjeta de workspace */
+.workspace-card {
+    background-color: white;
+    color: #1d1c1d;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.2s ease-in-out;
+}
+
+.workspace-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.workspace-card__left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.workspace-logo img {
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+}
+
+.workspace-info h3 {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.workspace-info p {
+    font-size: 14px;
+    color: #616061;
+}
+
+/* Botón iniciar Slack */
+.workspace-button {
+    background-color: #611f69;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.workspace-button:hover {
+    background-color: #4a154b;
+}
+
+/* Sección para crear nuevo workspace */
+.workspace-new {
+    background-color: white;
+    color: #1d1c1d;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.workspace-new__left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.workspace-new__img {
+    width: 60px;
+    border-radius: 50%;
+}
+
+.workspace-button--outlined {
+    background-color: transparent;
+    border: 2px solid #611f69;
+    color: #611f69;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.workspace-button--outlined:hover {
+    background-color: #f6e8f8;
+}
+
+.loading {
+    color: #fff;
+}
+
+.no-workspaces {
+    color: #fff;
+    text-align: center;
+    font-size: 16px;
+}

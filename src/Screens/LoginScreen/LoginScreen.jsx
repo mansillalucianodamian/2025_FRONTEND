@@ -1,5 +1,5 @@
 import React, { use, useContext } from 'react'
-import { useLocation, useNavigate } from 'react-router'
+import { Link, useLocation, useNavigate } from 'react-router'
 import useForm from '../../hooks/useForm'
 import useFetch from '../../hooks/useFetch'
 import { login } from '../../services/authService'
@@ -112,7 +112,7 @@ const LoginScreen = () => {
         </form>
         <div className="Form-main__register">
           <span>¿Es tu primera vez en Slack?</span>
-          <a href="">Crear una cuenta</a>
+          <Link to="/register">Crear una cuenta</Link>
         </div>
       </main>
       <footer className="Form-footer">
