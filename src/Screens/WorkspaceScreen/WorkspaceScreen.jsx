@@ -2,11 +2,11 @@ import React, { useState } from 'react'
 import ChannelSidebar from '../../Components/ChannelSidebar/ChannelSidebar'
 import ChannelDetail from '../../Components/ChannelDetail/ChannelDetail'
 import './WorkpaceScreen.css'
-import ICONS from '../../assets/Constants/icons'
 import { NavLink, useParams, useSearchParams } from 'react-router'
 import useFetch from '../../hooks/useFetch'
 import CreateChannelModal from '../../Components/CreateChannelModal/CreateChannelModal'
 import { createChannel } from '../../services/channelService'
+import ICONS from '../../constanst/Icons';
 
 
 

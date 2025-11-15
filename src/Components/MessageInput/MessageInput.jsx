@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { createMessage } from "../../services/messagesService"; 
 import "./MessageInput.css";
-import ICONS from "../../assets/Constants/icons";
+import ICONS from '../../constanst/Icons';
 
 function MessageInput({ workspace_id, channel_id, onMessageSent }) {
     const [text, setText] = useState("");
