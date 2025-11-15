@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { createMessage } from "../../services/messagesService"; 
 import "./MessageInput.css";
+import ICONS from "../../assets/constanst/icons";
 
 function MessageInput({ workspace_id, channel_id, onMessageSent }) {
     const [text, setText] = useState("");
@@ -31,7 +32,7 @@ function MessageInput({ workspace_id, channel_id, onMessageSent }) {
                 onChange={(e) => setText(e.target.value)}
                 onKeyDown={handleKeyDown}
             />
-            <button onClick={handleSend}>Enviar</button>
+            <button onClick={handleSend}><ICONS.send /></button>
         </div>
     );
 }

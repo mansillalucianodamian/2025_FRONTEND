@@ -29,6 +29,25 @@ async function getChannelList (workspace_id){
 //Debes pasar por body el name
 //body example: {name: 'general'}
 async function createChannel (workspace_id, channel_name){
+    const response_http = await fetch(
+        ENVIRONMENT.URL_API + `/api/workspace/${workspace_id}/channels`,
+        {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                authorization: `Bearer ${localStorage.getItem("auth_token")}`,
+            },
+            body: JSON.stringify({ name: channel_name }), // 👈 el body que espera tu backend
+        }
+    );
+
+    const response = await response_http.json();
+
+    if (!response_http.ok) {
+        throw new Error("Error al crear canal: " + (response.message || ""));
+    }
+
+    return response;
 
 }
 

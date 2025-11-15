@@ -84,7 +84,7 @@ const LoginScreen = () => {
             <label htmlFor="email"></label>
             <input className='imput'
               type="text"
-              placeholder="nombre-de-usuario@email.com"
+              placeholder="Correo electrónico"
               value={form_state[LOGIN_FORM_FIELDS.EMAIL]}
               name={LOGIN_FORM_FIELDS.EMAIL}
               onChange={onInputChange}
@@ -93,8 +93,8 @@ const LoginScreen = () => {
           <div>
             <label htmlFor="password"></label>
             <input className='imput'
-              type="text"
-              placeholder="*******"
+              type="password"
+              placeholder="Contraseña"
               value={form_state[LOGIN_FORM_FIELDS.PASSWORD]}
               name={LOGIN_FORM_FIELDS.PASSWORD}
               onChange={onInputChange}

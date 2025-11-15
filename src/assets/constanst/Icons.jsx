@@ -7,6 +7,9 @@ import { GoGear } from "react-icons/go";
 import { BiMessageSquareEdit } from "react-icons/bi";
 import { FaPaperPlane, FaSmile } from "react-icons/fa";
 import { MdAttachFile } from "react-icons/md";
+import { FaSlack } from "react-icons/fa";
+import { FaPlus } from "react-icons/fa";
+
 
 
 
@@ -23,6 +26,8 @@ const ICONS = {
     send: FaPaperPlane,
     emoji: FaSmile,
     attach: MdAttachFile,
+    slack: FaSlack,
+    plus: FaPlus
 }
 
 export default ICONS

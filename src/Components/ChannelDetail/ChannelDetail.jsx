@@ -71,7 +71,7 @@ const ChannelDetail = () => {
                 </div>
             )}
             {messages && messages.length === 0 && <p className="text_secondary">No se encontraron mensajes.</p>}
-            <div className="message-input">
+            <div>
                 <MessageInput
                         workspace_id={workspace_id}
                         channel_id={channel_id}
