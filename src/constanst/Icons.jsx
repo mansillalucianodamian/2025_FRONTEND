@@ -11,10 +11,6 @@ import { FaSlack } from "react-icons/fa";
 import { FaPlus } from "react-icons/fa";
 
 
-
-
-
-
 const ICONS = {
     Home: AiFillHome,
     Messages: LuMessagesSquare,
