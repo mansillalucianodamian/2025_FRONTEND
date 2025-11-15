@@ -4,7 +4,7 @@ import useFetch from '../../hooks/useFetch'
 import { useParams } from 'react-router'
 import { getChannelList } from '../../services/channelService'
 import './ChannelSidebar.css'
-import ICONS from '../../assets/constanst/icons'
+import ICONS from '../../assets/constants/icons'
 
 const ChannelSidebar = () => {
     const {
