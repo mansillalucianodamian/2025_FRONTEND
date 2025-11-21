@@ -1,32 +1,68 @@
-import React, { useState } from 'react'
+import React, { use, useEffect, useState } from 'react'
 import ChannelSidebar from '../../Components/ChannelSidebar/ChannelSidebar'
 import ChannelDetail from '../../Components/ChannelDetail/ChannelDetail'
 import './WorkpaceScreen.css'
 import { NavLink, useParams, useSearchParams } from 'react-router'
 import useFetch from '../../hooks/useFetch'
 import CreateChannelModal from '../../Components/CreateChannelModal/CreateChannelModal';
-import { createChannel } from '../../services/channelService';
+import { createChannel, getChannelList } from '../../services/channelService';
 import ICONS from '../../constanst/Icons'
 
-
-
-
 const WorkspaceScreen = () => {
+  const {
+    response,
+    loading,
+    error,
+    sendRequest
+  } = useFetch()
   // Obtenemos los IDs desde la URL
   const { workspace_id } = useParams();
+  //Responsable de cargar la lista de canales
+  function loadChannelList() {
+    sendRequest(
+      async () => {
+        return await getChannelList(workspace_id)
+      }
+    )
+  }
+
+  //Apenas se cargue el componente debemos intentar obtener la lista de canales, tambien se debe re-ejecutar si cambia el workspace_id
+  useEffect(
+    () => {
+      loadChannelList()
+    },
+    [workspace_id] //Cada vez que cambie workspace_id re ejecutar el efecto
+  )
+
   // Estado para abrir/cerrar el modal
   const [isModalOpen, setIsModalOpen] = useState(false);
   // Hook useFetch para peticiones
-  const { sendRequest, loading, error, response } = useFetch();
 
-const [channels, setChannels] = useState([]);
+  const [channels, setChannels] = useState([]);
+  const [newChannel, setNewChannel] = useState(null);
+  const [channelCreated, setChannelCreated] = useState(false);
   const handleCreateChannel = async (channelName) => {
     await sendRequest(async () => {
       const res = await createChannel(workspace_id, channelName);
-      setChannels((prev) => [...prev, res]);
-      return { ok: true, ...res }; 
+      setChannelCreated(true); // ✅ marcamos que fue creación
+      return res
     });
   };
+  useEffect(() => {
+
+    if (response && response.ok && response.data) {
+      setChannels(response.data.channels);
+
+      const lastChannel = response.data.channels[response.data.channels.length - 1];
+      setNewChannel(lastChannel);
+      console.log("nuevo canal", newChannel)
+    }
+  }, [response, channelCreated]);
+    const handleCloseModal = () => {
+        setIsModalOpen(false);
+        setChannelCreated(false);   
+        setNewChannel(null);        
+    };
 
   return (
     <div className='workspace-layout'>
@@ -66,7 +102,7 @@ const [channels, setChannels] = useState([]);
         </div>
       </aside>
       <div className='workspace-sidebar'>
-        <ChannelSidebar channels={channels} />
+        <ChannelSidebar channels={channels} loading={loading} error={error} response={response} />
       </div>
       <div className='workspace-menssage'>
         <ChannelDetail />
@@ -74,14 +110,11 @@ const [channels, setChannels] = useState([]);
 
       <CreateChannelModal
         isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
+        onClose={handleCloseModal}
         onCreate={handleCreateChannel}
+        newChannel={newChannel}
+        channelCreated={channelCreated}
       />
-
-      {loading && <p>Cargando...</p>}
-      {error && <p style={{ color: "red" }}>{error.message}</p>}
-      {response && <p>Canal creado correctamente ✅</p>}
-
     </div>
   )
 }

@@ -7,33 +7,8 @@ import './ChannelSidebar.css'
 import ICONS from '../../constanst/Icons'
 
 
-const ChannelSidebar = () => {
-    const {
-        response, 
-        loading, 
-        error, 
-        sendRequest
-    } = useFetch()
-    const {workspace_id} = useParams()
+const ChannelSidebar = ({channels, loading, error, response}) => {
 
-    //Responsable de cargar la lista de canales
-    function loadChannelList (){
-        sendRequest(
-            async () => {
-                return await getChannelList( workspace_id )
-            }
-        )
-    }
-
-    //Apenas se cargue el componente debemos intentar obtener la lista de canales, tambien se debe re-ejecutar si cambia el workspace_id
-    useEffect(
-        () => {
-            loadChannelList()
-        },
-        [workspace_id] //Cada vez que cambie workspace_id re ejecutar el efecto
-    )
-
-/*     console.log(response, error, loading) */
 
     return (
         <aside className='channel-layout'>
@@ -50,7 +25,7 @@ const ChannelSidebar = () => {
                 loading && <span className='text_secondary loading'>Cargando...</span>
             }
             {
-                response && <ChannelList channel_list={response.data.channels}/>
+                response && <ChannelList channel_list={channels}/>
             }
             {
                 error && <span style={{color: 'red'}}>Error al obtener la lista de canales</span>
