@@ -16,3 +16,27 @@ export async function getWorkspaces () {
     const response = await response_http.json()
     return response
 }
+/*
+createWorkspace(name, url_img = '')
+Consumir la api para crear un workspace
+*/
+
+export async function createWorkspace(name, url_img = '') {
+    const response_http = await fetch(
+        ENVIRONMENT.URL_API + '/api/workspace',
+        {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('auth_token')}`
+            },
+            body: JSON.stringify({name, url_img})
+        }
+    )
+    if(!response_http.ok){
+        throw new Error('Error al crear workspace')
+    }
+    const response = await response_http.json()
+    return response
+}
+

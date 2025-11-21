@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react'
 import useFetch from '../../hooks/useFetch'
 import { getWorkspaces } from '../../services/workspaceService'
-import { Link } from 'react-router'
+import { Link, useNavigate } from 'react-router'
 import './HomeScreen.css'
 
 
 const HomeScreen = () => {
-
+  const navigate = useNavigate();
   const { sendRequest, response, loading, error } = useFetch()
 
   useEffect(
@@ -76,7 +76,10 @@ const HomeScreen = () => {
               <span>¿Quieres usar Slack con otro equipo?</span>
             </div>
             <div className="workspace-new__right">
-              <button className="workspace-button--outlined">
+              <button
+                className="workspace-button--outlined"
+                onClick={() => navigate("/workspace-new")}
+              >
                 Crear un nuevo espacio de trabajo
               </button>
             </div>
