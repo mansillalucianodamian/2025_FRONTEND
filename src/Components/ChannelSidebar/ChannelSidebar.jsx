@@ -7,12 +7,12 @@ import './ChannelSidebar.css'
 import ICONS from '../../constanst/Icons'
 
 
-const ChannelSidebar = ({channels, loading, error, response}) => {
-
+const ChannelSidebar = ({channels, loading, error, response, workspace_name}) => {
 
     return (
         <aside className='channel-layout'>
             <div className='channel_icons'>
+                <h3>{workspace_name}</h3>
                 <ICONS.Gear/>
                 <ICONS.NewMessage/>
             </div>

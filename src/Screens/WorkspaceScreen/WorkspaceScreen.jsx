@@ -7,6 +7,7 @@ import useFetch from '../../hooks/useFetch'
 import CreateChannelModal from '../../Components/CreateChannelModal/CreateChannelModal';
 import { createChannel, getChannelList } from '../../services/channelService';
 import ICONS from '../../constanst/Icons'
+import { getWorkspaces } from '../../services/workspaceService'
 
 const WorkspaceScreen = () => {
   const {
@@ -17,6 +18,7 @@ const WorkspaceScreen = () => {
   } = useFetch()
   // Obtenemos los IDs desde la URL
   const { workspace_id } = useParams();
+    const [workspace, setWorkspace] = useState(null);
   //Responsable de cargar la lista de canales
   function loadChannelList() {
     sendRequest(
@@ -34,6 +36,22 @@ const WorkspaceScreen = () => {
     [workspace_id] //Cada vez que cambie workspace_id re ejecutar el efecto
   )
 
+  // Cargar workspace seleccionado cada vez que cambie workspace_id
+  useEffect(() => {
+  if (!workspace_id) return;
+
+  getWorkspaces()
+    .then((res) => {
+      const list = res?.data?.workspaces || [];
+      const ws = list.find((w) => w.workspace_id === workspace_id);
+      setWorkspace(ws || null);
+    })
+    .catch((err) => {
+      console.error("Error al obtener workspace:", err);
+      setWorkspace(null);
+    });
+}, [workspace_id]);
+
   // Estado para abrir/cerrar el modal
   const [isModalOpen, setIsModalOpen] = useState(false);
   // Hook useFetch para peticiones
@@ -44,15 +62,13 @@ const WorkspaceScreen = () => {
   const handleCreateChannel = async (channelName) => {
     await sendRequest(async () => {
       const res = await createChannel(workspace_id, channelName);
-      setChannelCreated(true); // ✅ marcamos que fue creación
+      setChannelCreated(true);
       return res
     });
   };
   useEffect(() => {
-
     if (response && response.ok && response.data) {
       setChannels(response.data.channels);
-
       const lastChannel = response.data.channels[response.data.channels.length - 1];
       setNewChannel(lastChannel);
       console.log("nuevo canal", newChannel)
@@ -102,7 +118,8 @@ const WorkspaceScreen = () => {
         </div>
       </aside>
       <div className='workspace-sidebar'>
-        <ChannelSidebar channels={channels} loading={loading} error={error} response={response} />
+        <ChannelSidebar channels={channels} loading={loading} error={error} response={response} workspace_id={workspace_id}
+  workspace_name={workspace?.workspace_name || "Workspace"}/>
       </div>
       <div className='workspace-menssage'>
         <ChannelDetail />

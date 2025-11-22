@@ -12,7 +12,7 @@ const ChannelDetail = () => {
     if (!channel_id) {
         return (
             <div>
-                <span>Canal no seleccionado</span>
+                <span className="text_secondary">Canal no seleccionado</span>
             </div>
         )
     }
@@ -55,7 +55,7 @@ const ChannelDetail = () => {
             {messages.length > 0 ? (
                 <div className="messages-list">
                     {messages.map((message, index) => {
-                        const isMine = message.user_name === user?.name // 👈 comparación con el auth
+                        const isMine = message.user_name === user?.name 
                         return (
                             <div
                                 key={index}
