@@ -8,7 +8,7 @@ const ChannelList = ({ channel_list }) => {
         <div className='channel-list'>
             {
                 channel_list.length === 0
-                    ? <span className='text_secondary'>Aun no has creado ningun canal</span>
+                    ? <span className='text_secondary_light'>Aun no has creado ningun canal</span>
                     : channel_list.map(
                         (channel) => {
                             return (

@@ -7,7 +7,7 @@ import MessageInput from "../MessageInput/MessageInput";
 import { AuthContext } from "../../Context/AuthContext";
 
 const ChannelDetail = () => {
-    const { channel_id, workspace_id } = useParams()
+    const { channel_id, workspace_id} = useParams()
     const { user } = useContext(AuthContext)
     if (!channel_id) {
         return (
@@ -17,6 +17,8 @@ const ChannelDetail = () => {
         )
     }
     const { response, error, loading, sendRequest } = useFetch();
+    
+    
 
     async function loadMessagesList(channel_id) {
         try {
@@ -38,7 +40,8 @@ const ChannelDetail = () => {
             channel_id
         ]
     )
-    console.log(response, error, loading)
+    const channelName = response?.data?.channel_name || channel_id;
+    const formattedChannelName = `# ${channelName?.toLowerCase()}`;
 
     let messages = response?.data ? response.data.messages : []
     console.log(messages)
@@ -52,6 +55,10 @@ const ChannelDetail = () => {
 
     return (
         <div className="message-container">
+            <div className="message-header">
+                <h2 className="channel-name">{formattedChannelName}</h2>
+                <button>Invitar al equipo</button>
+            </div>
             {messages.length > 0 ? (
                 <div className="messages-list">
                     {messages.map((message, index) => {

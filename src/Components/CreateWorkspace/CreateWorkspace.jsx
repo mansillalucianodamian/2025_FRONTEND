@@ -35,15 +35,21 @@ const CreateWorkpace = () => {
    const { form_state, onInputChange, handleSubmit } = useForm(initial_state, onSubmit);
     return (
         <div>
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label htmlFor="workspace_name">Nombre del espacio de trabajo</label>
-                    <input type="text" name="workspace_name" id="workspace_name" value={form_state.workspace_name} onChange={onInputChange} />
+            <form className="form" onSubmit={handleSubmit}>
+                <div className='form-field'>
+                    <label htmlFor="workspace_name"></label>
+                    <input className='imput'
+                    type="text" 
+                    placeholder='Nombre del Workspaces'
+                    name="workspace_name" 
+                    id="workspace_name" 
+                    value={form_state.workspace_name} 
+                    onChange={onInputChange} />
                 </div>
                 {
                     error && <span style={{ color: 'red' }}>{error.message}</span>
                 }
-                <button type="submit" disabled={loading}>
+                <button className='button-principal' type="submit" disabled={loading}>
                     {loading ? 'Creando...' : 'Crear espacio de trabajo'}
                 </button>
             </form>
