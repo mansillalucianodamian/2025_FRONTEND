@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import useForm from '../../hooks/useForm'
 import { register } from '../../services/authService'
 import useFetch from '../../hooks/useFetch'
-import './RegisterScreen.css'
+
 
 
 
