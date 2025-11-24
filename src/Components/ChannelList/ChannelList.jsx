@@ -2,7 +2,7 @@ import React from 'react'
 import { Link, useParams } from 'react-router'
 import './ChannelList.css'
 
-const ChannelList = ({ channel_list }) => {
+const ChannelList = ({ channel_list, onChannelSelect }) => {
     const { workspace_id } = useParams()
     return (
         <div className='channel-list'>
@@ -12,7 +12,7 @@ const ChannelList = ({ channel_list }) => {
                     : channel_list.map(
                         (channel) => {
                             return (
-                                <Link className='list_channel' key={channel._id} to={`/workspace/${workspace_id}/${channel._id}`}>
+                                <Link className='list_channel' key={channel._id} to={`/workspace/${workspace_id}/${channel._id}`} onClick={onChannelSelect}s>
                                     <span className="channel-hash">#  </span>
                                     <span className="channel-name">{channel.name}</span>
                                 </Link>

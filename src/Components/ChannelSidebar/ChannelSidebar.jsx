@@ -7,7 +7,7 @@ import './ChannelSidebar.css'
 import ICONS from '../../constanst/Icons'
 
 
-const ChannelSidebar = ({ channels, loading, error, response, workspace_name }) => {
+const ChannelSidebar = ({ channels, loading, error, response, workspace_name, onChannelSelect }) => {
 
     return (
         <aside className='channel-layout'>
@@ -23,7 +23,7 @@ const ChannelSidebar = ({ channels, loading, error, response, workspace_name }) 
                 loading && <span className='text_secondary loading'>Cargando...</span>
             }
             {
-                response && <ChannelList channel_list={channels} />
+                response && <ChannelList channel_list={channels} onChannelSelect={onChannelSelect}/>
             }
             {
                 error && <span style={{ color: 'red' }}>Error al obtener la lista de canales</span>

@@ -9,6 +9,7 @@ import { FaPaperPlane, FaSmile } from "react-icons/fa";
 import { MdAttachFile } from "react-icons/md";
 import { FaSlack } from "react-icons/fa";
 import { FaPlus } from "react-icons/fa";
+import { IoArrowBackCircleOutline } from "react-icons/io5";
 
 
 const ICONS = {
@@ -23,7 +24,8 @@ const ICONS = {
     emoji: FaSmile,
     attach: MdAttachFile,
     slack: FaSlack,
-    plus: FaPlus
+    plus: FaPlus,
+    back: IoArrowBackCircleOutline
 }
 
 export default ICONS

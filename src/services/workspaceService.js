@@ -40,3 +40,24 @@ export async function createWorkspace(name, url_img = '') {
     return response
 }
 
+/* '/:workspace_id/invite', crear funcion para invitar usuarios
+ */
+
+export async function inviteUser (email, workspace_id){
+    const response_http = await fetch(
+        ENVIRONMENT.URL_API + `/api/workspace/${workspace_id}/invite`,
+        {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('auth_token')}`
+            },
+            body: JSON.stringify({email})
+        }
+    )
+    if(!response_http.ok){
+        throw new Error('Error al invitar usuario')
+    }
+    const response = await response_http.json()
+    return response
+}

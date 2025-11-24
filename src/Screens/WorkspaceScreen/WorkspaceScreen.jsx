@@ -18,7 +18,8 @@ const WorkspaceScreen = () => {
   } = useFetch()
   // Obtenemos los IDs desde la URL
   const { workspace_id } = useParams();
-    const [workspace, setWorkspace] = useState(null);
+  const [workspace, setWorkspace] = useState(null);
+
   //Responsable de cargar la lista de canales
   function loadChannelList() {
     sendRequest(
@@ -38,19 +39,21 @@ const WorkspaceScreen = () => {
 
   // Cargar workspace seleccionado cada vez que cambie workspace_id
   useEffect(() => {
-  if (!workspace_id) return;
+    if (!workspace_id) return;
 
-  getWorkspaces()
-    .then((res) => {
-      const list = res?.data?.workspaces || [];
-      const ws = list.find((w) => w.workspace_id === workspace_id);
-      setWorkspace(ws || null);
-    })
-    .catch((err) => {
-      console.error("Error al obtener workspace:", err);
-      setWorkspace(null);
-    });
-}, [workspace_id]);
+    getWorkspaces()
+      .then((res) => {
+        const list = res?.data?.workspaces || [];
+        const ws = list.find((w) => w.workspace_id === workspace_id);
+        setWorkspace(ws || null);
+      })
+      .catch((err) => {
+        console.error("Error al obtener workspace:", err);
+        setWorkspace(null);
+      });
+  }, [workspace_id]);
+
+
 
   // Estado para abrir/cerrar el modal
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -59,6 +62,7 @@ const WorkspaceScreen = () => {
   const [channels, setChannels] = useState([]);
   const [newChannel, setNewChannel] = useState(null);
   const [channelCreated, setChannelCreated] = useState(false);
+  const [showMessages, setShowMessages] = useState(false);//manejar mensajes
   const handleCreateChannel = async (channelName) => {
     await sendRequest(async () => {
       const res = await createChannel(workspace_id, channelName);
@@ -74,15 +78,15 @@ const WorkspaceScreen = () => {
       console.log("nuevo canal", newChannel)
     }
   }, [response, channelCreated]);
-    const handleCloseModal = () => {
-        setIsModalOpen(false);
-        setChannelCreated(false);   
-        setNewChannel(null);        
-    };
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setChannelCreated(false);
+    setNewChannel(null);
+  };
 
   return (
     <div className='workspace-layout'>
-      <aside className='workspace-icons'>
+      <aside className={`workspace-icons ${showMessages ? "hidden-mobile" : ""}`}>
         <div className='workspace-icons__top'>
           <NavLink to="/home"
             className={({ isActive }) => isActive ? "nav-icon active" : "nav-icon"}>
@@ -117,14 +121,16 @@ const WorkspaceScreen = () => {
           <span className='text-small'>Crear</span>
         </div>
       </aside>
-      <div className='workspace-sidebar'>
+      <div
+        className={`workspace-sidebar ${showMessages ? "hidden-mobile" : ""}`}
+      >
         <ChannelSidebar channels={channels} loading={loading} error={error} response={response} workspace_id={workspace_id}
-  workspace_name={workspace?.workspace_name || "Workspace"}/>
+          workspace_name={workspace?.workspace_name || "Workspace"}
+          onChannelSelect={() => setShowMessages(true)} />
       </div>
-      <div className='workspace-menssage'>
-        <ChannelDetail />
+      <div className={`workspace-menssage ${showMessages ? "show-mobile" : ""}`}>
+         <ChannelDetail onBack={() => setShowMessages(false)} />
       </div>
-
       <CreateChannelModal
         isOpen={isModalOpen}
         onClose={handleCloseModal}

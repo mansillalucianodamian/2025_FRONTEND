@@ -5,7 +5,7 @@
   width: 100%;                
   padding: 20px;
   background-color: #1a1a1a; 
-  border-top: #3c1142 solid 1px;
+  border-top: #999595 solid 1px;
 }
 
 .message-input input {
@@ -43,3 +43,4 @@
 .message-input button:hover {
   background-color: #4a1450;        /* tono más oscuro al pasar el mouse */
 }
+
