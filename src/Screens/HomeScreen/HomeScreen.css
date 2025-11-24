@@ -33,11 +33,20 @@
     color: #1d1c1d;
     padding: 16px;
     border-radius: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
 }
 
 .user-email {
+ display: inline-block; /* o block/flex, pero no inline puro */
+  max-width: 100%;       /* ocupa todo el ancho disponible */
+  overflow: hidden;      /* oculta lo que no entra */
+  text-overflow: ellipsis; /* agrega "..." si se corta */
+  white-space: nowrap;   /* evita que se corte en varias líneas */
   color: #611f69;        
-  font-weight: 500;       
+  font-weight: 500; 
+
 }
 
 
@@ -142,4 +151,33 @@
     color: #fff;
     text-align: center;
     font-size: 16px;
+}
+
+@media (max-width: 768px) {
+    .workspace-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    .workspace-card__right{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .workspace-button{
+        width: 100%;
+    }
+
+    .workspace-new {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+    .workspace-new__left span {
+        display: none;
+    }
 }

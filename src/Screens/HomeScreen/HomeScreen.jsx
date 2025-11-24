@@ -37,17 +37,16 @@ const HomeScreen = () => {
             </h2>
           )}
 
+
           {response && response.data.workspaces.length > 0 ? (
             response.data.workspaces.map((workspace) => (
               <div key={workspace.workspace_id} className="workspace-card">
                 <div className="workspace-card__left">
                   <div className="workspace-logo">
-                    {/* En caso de que tengas un logo dinámico */}
                     <img src="/slack_worskpaces.png" alt="logo" />
                   </div>
                   <div className="workspace-info">
                     <h3>{workspace.workspace_name}</h3>
-                    <p>0 miembros</p>
                   </div>
                 </div>
 
@@ -73,7 +72,7 @@ const HomeScreen = () => {
                 alt="Nuevo espacio"
                 className="workspace-new__img"
               />
-              <span>¿Quieres usar Slack con otro equipo?</span>
+              <span>¿Necesitas crear un nuevo espacio de trabajo?</span>
             </div>
             <div className="workspace-new__right">
               <button

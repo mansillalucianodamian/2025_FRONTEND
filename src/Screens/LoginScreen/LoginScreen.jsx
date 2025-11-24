@@ -78,7 +78,7 @@ const LoginScreen = () => {
 
       <main className="Form-main">
         <h1 className="title-principal">Escribe tu correo electrónico para iniciar sesión</h1>
-        <h3 className='title-mediun'>O elige una cuenta sino tienes una.</h3>
+        <h3 className='title-mediun'>O elige crear una cuenta sino tienes una.</h3>
         <form className="form" onSubmit={handleSubmit}>
           <div className="form-field">
             <label htmlFor="email"></label>
