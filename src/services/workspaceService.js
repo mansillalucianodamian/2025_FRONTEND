@@ -56,7 +56,8 @@ export async function inviteUser (invited_email, workspace_id){
         }
     )
     if(!response_http.ok){
-        throw new Error('Error al invitar usuario')
+       const data = await response_http.json().catch(() => ({}));
+    throw { response: { status: response_http.status, data } };
     }
     const response = await response_http.json()
     return response

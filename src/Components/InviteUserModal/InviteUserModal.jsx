@@ -19,18 +19,25 @@ const InviteUserModal = ({ workspace_id, onClose, onInvited }) => {
             // callback para el padre (ej. refrescar lista de miembros)
             if (onInvited) onInvited(response);
 
-            setSuccess("Invitación enviada con éxito ✅");
+            setSuccess("✅ Invitación enviada con éxito");
             setEmail(""); // limpiar input
         } catch (err) {
-            // Manejo de errores según status del backend
             const status = err.response?.status;
+            const message = err.response?.data?.message;
+            console.error("Error invitando usuario:", err);
+  console.log("Error response:", err.response);
+  console.log("Error status:", err.response?.status);
+  console.log("Error data:", err.response?.data);
             if (status === 404) {
-                setError("Ese usuario no está registrado. Pídele que se registre primero.");
+                setError("❗ Ese usuario no está registrado. Pídele que se registre primero.");
             } else if (status === 409) {
-                setError("Ese usuario ya forma parte del workspace.");
+                setError("⚠️ Ese usuario ya forma parte del workspace.");
+            } else if (status === 400 && message?.includes("inactivo")) {
+                setError("❗ El usuario invitado está inactivo.");
             } else {
-                setError("Error interno al invitar usuario.");
+                setError("🚨 Error interno al invitar usuario. Intenta nuevamente.");
             }
+
             console.error("Error invitando usuario:", err);
         } finally {
             setLoading(false);
