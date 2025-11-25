@@ -23,7 +23,6 @@
 
 .message-input-container {
     flex-shrink: 0;
-    border-top: 1px solid #333;
     padding: 10px;
     background-color: #1a1a1a;
 }
@@ -162,7 +161,6 @@
 
     .message-input-container {
         flex-shrink: 0;
-        border-top: 1px solid #333;
         padding: 10px;
         background-color: #1a1a1a;
     }

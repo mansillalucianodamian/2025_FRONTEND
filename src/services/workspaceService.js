@@ -43,7 +43,7 @@ export async function createWorkspace(name, url_img = '') {
 /* '/:workspace_id/invite', crear funcion para invitar usuarios
  */
 
-export async function inviteUser (email, workspace_id){
+export async function inviteUser (invited_email, workspace_id){
     const response_http = await fetch(
         ENVIRONMENT.URL_API + `/api/workspace/${workspace_id}/invite`,
         {
@@ -52,7 +52,7 @@ export async function inviteUser (email, workspace_id){
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${localStorage.getItem('auth_token')}`
             },
-            body: JSON.stringify({email})
+            body: JSON.stringify({invited_email})
         }
     )
     if(!response_http.ok){

@@ -23,6 +23,14 @@ const LoginScreen = () => {
     [] //Solo queremos que se ejecute cuando se monte el componente
   )
 
+  useEffect(() => {
+  const query = new URLSearchParams(location.search)
+  const verified = query.get('verified')
+  if (verified === 'true') {
+    alert('✅ Invitación confirmada, tu email está verificado. Ahora podés iniciar sesión')
+  }
+}, [location.search])
+
 
   const LOGIN_FORM_FIELDS = {
     EMAIL: 'email',

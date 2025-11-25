@@ -110,11 +110,11 @@ const ChannelDetail = ({ onBack }) => {
                 <p className="text_secondary">No se encontraron mensajes.</p>
             )}
             <div className="message-input-container">
-            <MessageInput
-                workspace_id={workspace_id}
-                channel_id={channel_id}
-                onMessageSent={addMessage}
-            />
+                <MessageInput
+                    workspace_id={workspace_id}
+                    channel_id={channel_id}
+                    onMessageSent={addMessage}
+                />
             </div>
         </div>
     );

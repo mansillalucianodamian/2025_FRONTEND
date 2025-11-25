@@ -6,6 +6,7 @@ import HomeScreen from './Screens/HomeScreen/HomeScreen'
 import AuthMiddleware from './Middleware/AuthMiddleware'
 import WorkspaceScreen from './Screens/WorkspaceScreen/WorkspaceScreen'
 import CreateWorkspaceScreen from './Screens/CreateWorkspaceScreen/CreateWorkspaceScreen'
+import InviteUserModal from './Components/InviteUserModal/InviteUserModal'
 
 function App() {
 
