@@ -12,7 +12,7 @@ const ChannelList = ({ channel_list, onChannelSelect }) => {
                     : channel_list.map(
                         (channel) => {
                             return (
-                                <Link className='list_channel' key={channel._id} to={`/workspace/${workspace_id}/${channel._id}`} onClick={onChannelSelect}s>
+                                <Link className='list_channel' key={channel._id} to={`/workspace/${workspace_id}/${channel._id}`} onClick={() => onChannelSelect(channel)}>
                                     <span className="channel-hash">#  </span>
                                     <span className="channel-name">{channel.name}</span>
                                 </Link>

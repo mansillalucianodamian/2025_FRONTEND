@@ -8,8 +8,7 @@ import { AuthContext } from "../../Context/AuthContext";
 import InviteUserModal from "../InviteUserModal/InviteUserModal";
 import ICONS from "../../constanst/Icons";
 
-const ChannelDetail = ({ onBack }) => {
-    const { channel_id, workspace_id } = useParams()
+const ChannelDetail = ({ channel_id, workspace_id, onBack }) => {
     const [showInviteModal, setShowInviteModal] = useState(false);
     const { user } = useContext(AuthContext)
     const { response, error, loading, sendRequest } = useFetch();
@@ -24,6 +23,7 @@ const ChannelDetail = ({ onBack }) => {
     )
 
     async function loadMessagesList(channel_id) {
+        if (!channel_id) return
         try {
             sendRequest(
                 async () => {

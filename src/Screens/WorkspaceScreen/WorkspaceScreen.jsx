@@ -63,6 +63,7 @@ const WorkspaceScreen = () => {
   const [newChannel, setNewChannel] = useState(null);
   const [channelCreated, setChannelCreated] = useState(false);
   const [showMessages, setShowMessages] = useState(false);//manejar mensajes
+  const [selectedChannel, setSelectedChannel] = useState(null);
   const handleCreateChannel = async (channelName) => {
     await sendRequest(async () => {
       const res = await createChannel(workspace_id, channelName);
@@ -125,11 +126,11 @@ const WorkspaceScreen = () => {
         className={`workspace-sidebar ${showMessages ? "hidden-mobile" : ""}`}
       >
         <ChannelSidebar channels={channels} loading={loading} error={error} response={response} workspace_id={workspace_id}
-          workspace_name={workspace?.workspace_name || "Workspace"}
-          onChannelSelect={() => setShowMessages(true)} />
+          workspace_name={workspace?.workspace_name || "Workspace" } 
+          onChannelSelect={(channel) => {setSelectedChannel(channel); setShowMessages(true);}} />
       </div>
       <div className={`workspace-menssage ${showMessages ? "show-mobile" : ""}`}>
-         <ChannelDetail onBack={() => setShowMessages(false)} />
+         <ChannelDetail channel_id={selectedChannel?._id} workspace_id={workspace_id} onBack={() => setShowMessages(false)} />
       </div>
       <CreateChannelModal
         isOpen={isModalOpen}
