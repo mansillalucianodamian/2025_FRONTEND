@@ -88,6 +88,7 @@
         padding: 0;
         overflow-y: auto;
     }
+
     .workspace-sidebar.hidden-mobile {
         display: none;
     }
@@ -97,9 +98,9 @@
     }
 
     .workspace-menssage.show-mobile {
-    display: flex;
-    flex: 1;
-  }
+        display: flex;
+        flex: 1;
+    }
 
 
     .workspace-icons {
@@ -132,20 +133,6 @@
     .workspace-sidebar,
     .workspace-menssage {
         margin-bottom: 60px;
-    } 
-}
-
-/* Desktop (≥1020px) */
-@media (min-width: 1020px) {
-    .icon-especial {
-        display: none;
-        /* apagado en escritorio */
     }
 }
 
-/* 
-
-    
-
-
-} */

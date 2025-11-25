@@ -80,10 +80,10 @@
     width: 100% !important;
     height: calc(100vh - 60px) !important; 
     padding: 16px !important;
-    overflow-y: auto;
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
+    overflow-x: hidden;
   }
 
   .channel-layout__header {

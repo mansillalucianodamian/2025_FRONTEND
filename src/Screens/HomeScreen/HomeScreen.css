@@ -117,8 +117,8 @@
     font-weight: 600;
     text-decoration: none;
     transition: background-color 0.2s ease-in-out;
-    line-height: 1.7;     
-  display: inline-block;
+    line-height: 1.7;
+    display: inline-block;
 }
 
 .workspace-button--danger:hover {
@@ -190,6 +190,12 @@
         width: 100%;
         display: flex;
         justify-content: center;
+    }
+
+    .workspace-card__left {
+        justify-content: flex-start;
+        text-align: left;
+        width: 100%;
     }
 
     .workspace-button {
