@@ -71,6 +71,7 @@ const WorkspaceScreen = () => {
       return res
     });
   };
+  
   useEffect(() => {
     if (response && response.ok && response.data) {
       setChannels(response.data.channels);

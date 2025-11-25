@@ -22,6 +22,7 @@ Consumir la api para crear un workspace
 */
 
 export async function createWorkspace(name, url_img = '') {
+
     const response_http = await fetch(
         ENVIRONMENT.URL_API + '/api/workspace',
         {
@@ -58,6 +59,23 @@ export async function inviteUser (invited_email, workspace_id){
     if(!response_http.ok){
        const data = await response_http.json().catch(() => ({}));
     throw { response: { status: response_http.status, data } };
+    }
+    const response = await response_http.json()
+    return response
+}
+
+export async function deleteWorkspace(workspace_id) {
+    const response_http = await fetch(
+        ENVIRONMENT.URL_API + `/api/workspace/${workspace_id}`,
+        {
+            method: 'DELETE',
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem('auth_token')}`
+            }
+        }
+    )
+    if(!response_http.ok){
+        throw new Error('Error al eliminar workspace')
     }
     const response = await response_http.json()
     return response

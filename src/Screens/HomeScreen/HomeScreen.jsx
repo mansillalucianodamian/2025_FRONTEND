@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import useFetch from '../../hooks/useFetch'
-import { getWorkspaces } from '../../services/workspaceService'
+import { deleteWorkspace, getWorkspaces } from '../../services/workspaceService'
 import { Link, useNavigate } from 'react-router'
 import './HomeScreen.css'
 
@@ -17,7 +17,17 @@ const HomeScreen = () => {
     },
     []
   )
-
+  const handleDeleteWorkspace = async (workspace_id) => {
+    try {
+      await deleteWorkspace(workspace_id)
+      alert("Workspace eliminado correctamente")
+      // refrescar lista
+      sendRequest(() => getWorkspaces())
+    } catch (err) {
+      console.error("Error eliminando workspace:", err)
+      alert("No se pudo eliminar el workspace")
+    }
+  }
   console.log(response, loading, error)
   return (
 
@@ -57,6 +67,12 @@ const HomeScreen = () => {
                   >
                     Iniciar Slack
                   </Link>
+                  <button
+                    className="workspace-button--danger"
+                    onClick={() => handleDeleteWorkspace(workspace.workspace_id)}
+                  >
+                    Eliminar
+                  </button>
                 </div>
               </div>
             ))
