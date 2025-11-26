@@ -80,3 +80,22 @@ export async function deleteWorkspace(workspace_id) {
     const response = await response_http.json()
     return response
 }
+
+export async function updateWorkspaces(workspace_id, name, url_img = '') {
+    const response_http = await fetch(
+        ENVIRONMENT.URL_API + `/api/workspace/${workspace_id}`,
+        {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('auth_token')}`
+            },
+            body: JSON.stringify({name, url_img})
+        }
+    )
+    if(!response_http.ok){
+        throw new Error('Error al actualizar workspace')
+    }
+    const response = await response_http.json()
+    return response
+}

@@ -125,6 +125,10 @@
     gap: 8px;
 }
 
+.icon-especial svg {
+  width: 30px;
+  height: 30px;
+}
 .icon-especial {
     display: none;
     width: 40px;

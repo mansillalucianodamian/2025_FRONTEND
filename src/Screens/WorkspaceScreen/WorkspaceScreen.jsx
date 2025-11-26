@@ -95,22 +95,22 @@ const WorkspaceScreen = () => {
             <ICONS.Home className='icon' />
           </NavLink>
           <span className='text-small'>Home</span>
-          <NavLink to="/"
+          <NavLink to="javascript:void(0)"
             className={({ isActive }) => isActive ? "nav-icon active" : "nav-icon"}>
             <ICONS.Messages className='icon' />
           </NavLink>
           <span className='text-small'>Mensajes directos</span>
-          <NavLink to="/"
+          <NavLink to="javascript:void(0)"
             className={({ isActive }) => isActive ? "nav-icon active" : "nav-icon"}>
             <ICONS.Activity className='icon' />
           </NavLink>
           <span className='text-small'>Actividad</span>
-          <NavLink to="/"
+          <NavLink to="javascript:void(0)"
             className={({ isActive }) => isActive ? "nav-icon active" : "nav-icon"}>
             <ICONS.File className='icon' />
           </NavLink>
           <span className='text-small'>Archivos</span>
-          <NavLink to="/"
+          <NavLink to="javascript:void(0)"
             className={({ isActive }) => isActive ? "nav-icon active" : "nav-icon"}>
             <ICONS.Tools className='icon' />
           </NavLink>

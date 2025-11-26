@@ -62,7 +62,7 @@ const ChannelDetail = ({ channel_id, workspace_id, onBack }) => {
             <div className="message-header">
                 <div className="header-left">
                     <button className="icon-especial" onClick={onBack}>
-                        <ICONS.back className="icon" />
+                        <ICONS.back />
                     </button>
                     <h2 className="channel-name">{formattedChannelName}</h2>
                 </div>

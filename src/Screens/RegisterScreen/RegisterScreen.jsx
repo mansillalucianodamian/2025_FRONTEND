@@ -94,7 +94,7 @@ const RegisterScreen = () => {
                         />
                     </div>
                     {error && <span style={{ color: 'red' }}> {error.message} </span>}
-                    {response && <span style={{ color: 'green' }}> Usuario registrado con exito! </span>}
+                    {response && <span style={{ color: 'green' }}> Usuario registrado con exito, revisa tu correo para veririficar. </span>}
                     {
                         loading
                             ? <button className='button-principal' disabled>Registrando</button>
