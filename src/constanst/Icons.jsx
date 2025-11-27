@@ -10,6 +10,9 @@ import { MdAttachFile } from "react-icons/md";
 import { FaSlack } from "react-icons/fa";
 import { FaPlus } from "react-icons/fa";
 import { IoArrowBackCircleOutline } from "react-icons/io5";
+import { RiDeleteBin5Line } from "react-icons/ri";
+import { GrUpdate } from "react-icons/gr";
+
 
 
 const ICONS = {
@@ -25,7 +28,9 @@ const ICONS = {
     attach: MdAttachFile,
     slack: FaSlack,
     plus: FaPlus,
-    back: IoArrowBackCircleOutline
+    back: IoArrowBackCircleOutline,
+    delete: RiDeleteBin5Line,
+    update: GrUpdate
 }
 
 export default ICONS

@@ -3,6 +3,7 @@ import useFetch from '../../hooks/useFetch'
 import { deleteWorkspace, getWorkspaces } from '../../services/workspaceService'
 import { Link, useNavigate } from 'react-router'
 import './HomeScreen.css'
+import ICONS from '../../constanst/Icons'
 
 
 const HomeScreen = () => {
@@ -68,10 +69,15 @@ const HomeScreen = () => {
                     Iniciar Slack
                   </Link>
                   <button
+                  className="workspace-button--update"
+                  onClick={() =>navigate(`/workspace-update/${workspace.workspace_id}`)}>
+                    <ICONS.update className='icons-workspace'/>
+                  </button>
+                  <button
                     className="workspace-button--danger"
                     onClick={() => handleDeleteWorkspace(workspace.workspace_id)}
                   >
-                    Eliminar
+                    <ICONS.delete className='icons-workspace' />
                   </button>
                 </div>
               </div>

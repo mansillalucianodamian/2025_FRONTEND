@@ -64,6 +64,10 @@ const WorkspaceScreen = () => {
   const [channelCreated, setChannelCreated] = useState(false);
   const [showMessages, setShowMessages] = useState(false);//manejar mensajes
   const [selectedChannel, setSelectedChannel] = useState(null);
+  const [activeChannel, setActiveChannel] = useState(null);
+
+  const [selfChannelActive, setSelfChannelActive] = useState(false);
+
   const handleCreateChannel = async (channelName) => {
     await sendRequest(async () => {
       const res = await createChannel(workspace_id, channelName);

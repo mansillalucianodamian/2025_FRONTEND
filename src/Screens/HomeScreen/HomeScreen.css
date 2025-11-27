@@ -105,7 +105,20 @@
     font-weight: 600;
     transition: background-color 0.2s ease-in-out;
 }
-
+.workspace-button--update{
+    background-color: #ffb60a;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-left: 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.2s ease-in-out;
+    line-height: 1.7;
+    display: inline-block;
+}
 .workspace-button--danger {
     background-color: #e74c3c;
     color: white;
@@ -188,6 +201,10 @@
     color: #fff;
     text-align: center;
     font-size: 16px;
+}
+.icons-workspace{
+    height: 20px;
+    width: 20px;
 }
 
 @media (max-width: 768px) {

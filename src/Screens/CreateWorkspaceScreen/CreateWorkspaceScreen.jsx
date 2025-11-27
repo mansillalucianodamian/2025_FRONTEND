@@ -4,7 +4,7 @@ import CreateWorkpace from "../../Components/CreateWorkspace/CreateWorkspace";
 
 const CreateWorkspaceScreen = () => {
     return (
-        <div className="Form-container">
+        <div>
             <header className="Form-header">
                 <img src="/logo Slack.png" alt="" />
             </header>
@@ -12,11 +12,6 @@ const CreateWorkspaceScreen = () => {
                 <h1 className="title-principal">Crear un nuevo espacio de trabajo</h1>
                 <CreateWorkpace />
             </main>
-            <footer className="Form-footer">
-                <a href="">Privacidad y términos</a>
-                <a href="">Contactarnos</a>
-                <a href="">Cambiar región</a>
-            </footer>
         </div>
     );
 };

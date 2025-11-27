@@ -32,4 +32,13 @@ Envío y visualización de mensajes por canal.
 📂 Integración con Backend
 Todas las llamadas se realizan a través de fetch, utilizando la URL base definida en el archivo .env
 El backend está documentado en la colección de Postman API_1.postman_collection.json.
-Para acceder a rutas protegidas se requiere incluir el token JWT en el header Authorization:
+Para acceder a rutas protegidas se requiere incluir el token JWT en el header Authorization
+
+🌐 Repositorios y despliegues
+Frontend 
+📦 Código fuente: https://github.com/mansillalucianodamian/2025_FRONTEND
+🚀 Deploy: https://2025-frontend-1w2nbqtm6-mansillalucianodamians-projects.vercel.app/
+
+Backend 
+📦 Código fuente: https://github.com/mansillalucianodamian/2025_BACKEND
+🚀 Deploy: https://2025-backend-adod1oock-mansillalucianodamians-projects.vercel.app/
